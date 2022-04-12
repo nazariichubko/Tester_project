@@ -45,6 +45,12 @@ class SeleniumBasic:
         title.lower()
         return [element1 for element1 in elements1 if element1.text == title][0]
 
+    def delete_specified_cookie(self, cookies_name: str) -> None:
+        self.driver.delete_cookie(cookies_name)
+
+
+
+
 
 
 
