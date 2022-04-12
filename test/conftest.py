@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.options import Options as chr_options
 def get_chr_options():
     options1 = chr_options()
     options1.add_argument('chrome') # 'headless' parameter allow to execute tests without runinng Browser UI.
+    options1.add_experimental_option('excludeSwitches', ['enable-logging'])
     options1.add_argument('--start-maximized')
     options1.add_argument("--window-size=1366,768")
     return options1
@@ -24,6 +25,5 @@ def test_setup(request, get_wbdriver):
     if request.cls is not None:
         request.cls.driver = driver
     driver.get(url)
-    driver.delete_all_cookies()
     yield driver
     driver.quit()
